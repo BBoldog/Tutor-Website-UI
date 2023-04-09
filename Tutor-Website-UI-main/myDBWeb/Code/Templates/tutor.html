@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block title %}Profile{% endblock %}
+
+{% block content %} 
+
+        {% for account in accounts %}
+    
+        {% if account['Email'] == email %}
+        <h1>Welcome to {{account['firstName']}}'s Tutor Page</h1>
+        <br>
+        <br>
+            <div style="float: right;">
+                    
+                <h5>{{account['firstName']}}'s Profile Picture:</h5>
+                <img src="{{ url_for('static', filename=tutorProfilePicture)}}" alt="Your image is not rendering" width="250" height="250">
+            </div>
+            <h5>Grade: {{ account['Grade'] }}</h5>
+            <br>
+            <h5>Email me: {{ account['Email'] }}</h5>
+            <br>
+            <h5>About me: {{ account['Bio'] }}  </h5>
+
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}

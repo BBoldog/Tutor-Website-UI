@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+
+
+<br>
+    <div class="Container">
+        <h3 class="heading">Sign Up</h3>
+        <br>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" />
+    
+        </div>
+    
+        
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name" />
+    
+        </div>
+    
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name" />
+    
+        </div>
+    
+        <div class="form-group" >
+            <label for="grade">Grade</label>
+            <br/>
+    
+            <select name="grade" id="grade">
+                <option value="temp">Select a Grade</option>
+                <option value="Freshman">Freshman</option>
+                <option value="Sophomore">Sophomore</option>
+                <option value="Junior">Junior</option>
+                <option value="Senior">Senior</option>
+              </select>
+        </div>
+        
+    
+        
+        <div class="form-group">
+            <label for="password1">Password</label>
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter password" />
+    
+        </div>
+    
+        
+        <div class="form-group">
+            <label for="password2">Password (Confirm)</label>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password" />
+    
+        </div>
+        <a href="/login">I already have an account</a>
+        <br>
+        <br>
+        <br>
+        <form method="POST">
+            <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
+    </div>
+
+<style>
+
+    .Container {
+        width: 100%;
+        border: solid 1px;
+        background-color: lightgrey;
+        padding: 10px;
+    }
+
+    .form-group {
+        font-weight: bold;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .heading {
+        text-align: center;
+        font-weight: bolder;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 40px;
+    }
+
+    .btn {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+</style>
+
+{% endblock %}

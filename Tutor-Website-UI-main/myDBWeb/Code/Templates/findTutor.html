@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}TutorMatch{% endblock %}
+
+{% block content %} 
+
+
+<br>
+<br>
+<h1 class="heading">Find a Tutor</h1>
+    
+<input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for a tutor...">
+    
+<div id="checkboxes">
+  <input type="checkbox" id="9" onchange="searchTable()">
+  <label for="9">Freshman</label>
+  <input type="checkbox" id="10" onchange="searchTable()">
+  <label for="10">Sophmore</label>
+  <input type="checkbox" id="11" onchange="searchTable()">
+  <label for="11">Junior</label>
+  <input type="checkbox" id="12" onchange="searchTable()">
+  <label for="12">Senior</label>
+</div>
+    
+<div class="table-container">
+  <table class="table table-bordered table-hover" id="tutors">
+    <thead class="thead-light">
+      <tr>
+        <!--<th>#</th>-->
+        <th>Name</th> 
+        <th>Grade</th>
+        <th>Can Teach</th>
+      </td>
+    </thead>
+    <tbody style="background-color: white;">
+    {% for account in accounts %}
+      <tr>
+        <!--<td><a href="{{ url_for('views.renderInfo', Email = account['Email']) }}">{{ account['ID'] }}</a></td>-->
+        <td><a href="{{ url_for('views.renderInfo', Email = account['Email']) }}">{{ account['firstName'] }} {{ account['lastName'] }}</a></td>
+        <td><a href="{{ url_for('views.renderInfo', Email = account['Email']) }}">{{ account['grade'] }}</a></td>
+        <td><a href="{{ url_for('views.renderInfo', Email = account['Email']) }}">{{ account['bio'] }}</a></td>
+      </tr>
+            
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+function searchTable() {
+  // Declare variables
+  var input, filter, table, tableBody, rows, cells, cellText, searchMatch, gradeMatch;
+  input = document.getElementById('searchInput');
+  filter = input.value.toUpperCase();
+  table = document.getElementById('tutors');
+  tableBody = table.getElementsByTagName('tbody')[0];
+  rows = tableBody.getElementsByTagName('tr');
+  for (i = 0; i < rows.length; i++) {
+    searchMatch = false;
+    gradeMatch = true;
+    cells = rows[i].getElementsByTagName('td');
+    for (j = 0; j < cells.length; j++) {
+      cellText = cells[j].innerText.toUpperCase();
+      if (cellText.indexOf(filter) > -1) {
+        searchMatch = true;
+      }
+      //only filter by this grade if its checkbox is checked
+      if (document.getElementById("9").checked) {
+        gradeMatch = gradeMatch && cells[1].innerText.toUpperCase().indexOf("FRESHMAN") > -1;
+      }
+      if (document.getElementById("10").checked) {
+        gradeMatch = gradeMatch && cells[1].innerText.toUpperCase().indexOf("SOPHOMORE") > -1;
+      }
+      if (document.getElementById("11").checked) {
+        gradeMatch = gradeMatch && cells[1].innerText.toUpperCase().indexOf("JUNIOR") > -1;
+      }
+      if (document.getElementById("12").checked) {
+        gradeMatch = gradeMatch && cells[1].innerText.toUpperCase().indexOf("SENIOR") > -1;
+      }
+    }
+    if (gradeMatch && searchMatch) {
+      rows[i].style.display = '';
+    } else {
+      rows[i].style.display = 'none';
+    }
+  }
+}
+</script>
+
+<style>
+  td a { 
+   display: block; 
+   border: 0p;
+   padding: 20px;
+   text-decoration: none;
+   color: black;
+  }
+
+  td a:hover {
+    text-decoration: none;
+    
+  }
+
+  tr:hover a {
+    color: #9d152d;
+  }
+
+  .table td {
+    padding: 0 !important;
+  }
+
+
+  body::-webkit-scrollbar{
+    display: none;
+  }
+
+  .table-container table {
+    width: 100%; /* Set table width to 100% by default */
+    /*table-layout: fixed; / Fix the table layout to prevent cell width from expanding */
+  }
+
+  .table-container td:last-child {
+    overflow-wrap: break-word; /* Use overflow-wrap property to wrap long words within cells */
+  }
+
+  .heading {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-weight: bold;
+  }
+
+</style>
+
+{% endblock %}

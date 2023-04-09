@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+<br>
+<br>
+<h1 class="heading">Welcome to TutorMatch!</h1>
+<!--
+<h1 style="text-align:center">Welcome {{ acc['firstName'] + ' ' + acc['lastName']}}!</h1>
+-->
+
+<!--
+<h4>
+    {{ acc['firstName'] + ' ' + acc['lastName']}} is logged in
+</h4>
+
+<a id="myProfile" href="/myProfile">Your Profile Page</a>
+<br>
+-->
+
+
+<!--
+<a href="/"><button type="button" class="block">Go to Classes</button></a>
+<a href="/findTutor"><button type="button" class="block">Become a Tutor</button></a>
+
+<style>
+    .block {
+        display: block;
+        width: 250px;
+        height: 100px;
+        background-color: gray;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        text-align: center; 
+        text-decoration: none;
+        /*margin: 1px;*/
+    }
+
+    .block:hover {
+        text-decoration: none;
+        background-color: lightgray;
+        color: black;
+    }
+</style>
+-->
+
+<br>
+<br>
+<div class="button-container">
+    <a href="/myProfile" class="left-button">Go to Classes ➜</a>
+    <a href="/findTutor" class="right-button">Become a Tutor ➜</a>
+</div>
+
+<style>
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left-button, .right-button {
+  display: inline-block;
+  width: 49%;
+  height: 300px;
+  text-align: center;
+  line-height: 300px;
+  background-color:grey;
+  color: white;
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: bolder;
+  border: 4px solid black;
+}
+
+.left-button {
+  border-radius: 5px 0 0 5px;
+}
+
+.right-button {
+  border-radius: 0 5px 5px 0;
+}
+
+.left-button:hover, .right-button:hover {
+  text-decoration: none;
+  background-color: lightgray;
+  color: black;
+}
+
+.heading {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+</style>
+
+{% endblock %}
