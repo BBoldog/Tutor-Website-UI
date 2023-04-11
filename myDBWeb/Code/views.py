@@ -139,4 +139,32 @@ def profilePicChange():
     #os.getcwd()
         
     
-    return render_template('profilePicChange.html', profilePic=profilePic )
+    return render_template('profilePicChange.html', profilePic=profilePic)
+
+@views.route('/aboutUs', methods=['GET', 'POST'])
+def aboutUs():
+    connection = get_db_connection()
+    accounts = connection.execute('SELECT * FROM Accounts').fetchall() # selects everything from Accounts table
+    bio = request.form.get('bio')
+
+    acc = 1
+    for account in accounts:
+        if current_user.id == account['ID']:
+            acc = account
+
+    tempProfilePicture = acc['ProfilePicture']
+    s2 = tempProfilePicture
+    s1 = 'pictures/'
+
+
+    profilePicture = "%s %s" % (s1, s2)
+
+
+    if request.method == 'POST':
+
+        update_bio(connection, (bio, current_user.id))
+        flash('Bio updated successfully!', category='success')
+    
+    connection.close()
+
+    return render_template("aboutUs.html", accounts=accounts, acc=acc, profilePicture=profilePicture)

@@ -4,7 +4,11 @@
 
 <br>
 <br>
-<h1 style="text-align:center">Welcome Back {{ acc['firstName'] + ' ' + acc['lastName']}}!</h1>
+<h1 class="heading">Welcome to TutorMatch!</h1>
+<!--
+<h1 style="text-align:center">Welcome {{ acc['firstName'] + ' ' + acc['lastName']}}!</h1>
+-->
+
 <!--
 <h4>
     {{ acc['firstName'] + ' ' + acc['lastName']}} is logged in
@@ -48,6 +52,7 @@
     <a href="/findTutor" class="right-button">Become a Tutor ➜</a>
 </div>
 
+
 <style>
 .button-container {
   display: flex;
@@ -78,9 +83,15 @@
 }
 
 .left-button:hover, .right-button:hover {
-    text-decoration: none;
-    background-color: lightgray;
-    color: black;
+  text-decoration: none;
+  background-color: lightgray;
+  color: black;
+}
+
+.heading {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 </style>
 

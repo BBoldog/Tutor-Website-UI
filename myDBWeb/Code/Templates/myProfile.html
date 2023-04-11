@@ -39,18 +39,17 @@
     
 
     <form method="POST">
-        <div>
-            <textarea name="bio" id="bio"></textarea>
-    
-        </div>
+        <textarea name="bio" id="bio" class="bio"></textarea>
         <br>
-        <div align="center">
-            <button type="submit">Update Bio</button>
-        </div>
+        <button type="submit">Update Bio</button>
     </form>
-    
-    <br>
-    <br>
-    <br>
+
+<style>
+    .bio {
+        width: 50%;
+        max-height: 100px;
+        min-height: 100px;
+    }
+</style>
     
 {% endblock %}
