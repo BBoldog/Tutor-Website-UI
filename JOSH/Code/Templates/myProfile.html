@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %} 
+
+<link rel="stylesheet" href="../static/styles/myProfile.css">
+
+    <header>
+
+        <div class="myProfileLeft">
+
+
+            <img class="profilePicture" src="{{ url_for('static', filename=profilePicture)}}" alt="Your image is not rendering">
+            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+            <lord-icon
+                src="https://cdn.lordicon.com/edxgdhxu.json"
+                trigger="hover"
+                style="width:250px;height:250px;">
+                
+            </lord-icon>
+
+        </div>
+
+
+
+        <div class='myProfileRight'>
+            <div class="profileData">
+                <div class="data">
+                    <h4 style="font-weight: bold;">Name</h4>
+                    <p>{{ acc['Name'] }}</p>
+                </div>
+                <div class="data">
+                    <h4 style="font-weight: bold;">Grade</h4>
+                    <p>{{ acc['Grade'] }}</p>
+                </div>
+                {% if acc['TutorValue'] == 1 %}
+                    <div class="data">
+                        <h4 style="font-weight: bold;">Classes Taught</h4>
+                        <p>{{ acc['SubjectsTaught'] }}</p>
+                        <a href="/classes" style="text-decoration: none;">Classes I can teach</a>
+                    </div>
+                {% endif %}
+                <div class="data">
+                    <h4 style="font-weight: bold;">Bio</h4>
+                    <p>{{ acc['Bio'] }}</p>
+                </div>
+
+                <label for="TutorCheckbox">Are you a tutor?</label>
+                <input type="checkbox" id="{{acc['ID']}}" class="tutorCheckboxDynamic" onchange="getValue()">
+
+                <form method="POST" class="bioPost">
+
+                
+                <div>
+                    <textarea name="bio" id="bio" placeholder="Add bio"></textarea>
+            
+                </div>
+                
+            
+                <br />
+
+                
+            
+                <div align="center">
+                    <button type="submit" >Update Information</button>
+                </div>
+
+                </form>
+
+                <label for="grade">Grade</label>
+
+                <select name="grade" id="gradeDropdown" onchange="getGrade()">
+                    <option value="Freshman">Freshman</option>
+                    <option value="Sophomore">Sophomore</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Senior">Senior</option>
+                </select>
+
+                
+                
+                <br>
+            </div>
+            
+
+        </div>
+        
+        <div class="myProfileRightBottom">
+            
+
+           
+        </div>
+        
+    </header>
+    
+
+    
+    
+    <script>
+
+        // When a checkbox is clicked, save its state to localStorage
+        
+        function getGrade() {
+            var gradeDropdown = document.getElementById("gradeDropdown");
+            console.log("this is value of dropdown")
+            gradeRecieved = gradeDropdown.value
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/send_grade", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({"grade": gradeRecieved}));
+
+
+        }
+
+        function getValue() {
+            var checkbox = document.getElementsByClassName("tutorCheckboxDynamic")[0];
+            var value_to_send = 0;
+            if (checkbox.checked) {
+                value_to_send = 1; 
+                console.log("Checkbox is checked");
+                // Do something if checkbox is checked
+            } else {
+                value_to_send = 0;
+                console.log("Checkbox is unchecked");
+                // Do something if checkbox is unchecked
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/send_tutorValue", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({"tutorValue": value_to_send}));
+
+
+        }
+
+        var tutorCheckbox = document.getElementById("{{acc['ID']}}");
+        console.log(tutorCheckbox)
+
+        var tutorCheckboxValueDB = "{{ tutorCheckboxValueDB }}";
+        console.log(tutorCheckboxValueDB)
+
+
+        if (tutorCheckboxValueDB == 1) {
+            tutorCheckbox.checked = true;
+
+        }
+        else {
+            tutorCheckbox.checked = false;
+        }
+
+
+        // getting value of grade dropdown from database
+
+        var gradeFromDB = "{{ grade }}" 
+        var gradeDropdown = document.getElementById("gradeDropdown");
+
+        gradeDropdown.value = gradeFromDB
+        
+
+
+    </script>
+
+    <script>
+
+
+
+
+
+    </script>
+    
+
+
+
+{% endblock %}

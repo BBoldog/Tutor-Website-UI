@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+
+{% block title %}Find Tutor{% endblock %}
+
+{% block content %} 
+
+<link rel="stylesheet" href="../static/styles/findTutor.css">
+
+<body>
+  <div class="container">
+      <div class="filter-column">
+          <!-- Filter options go here -->
+          <div class="filter-options">
+              <h2 style="text-align: center;">Filters</h2>
+              <div id="checkboxes">
+                <br>
+                <h4>Grade</h4>
+                      <input type="checkbox" id="9" onchange="searchTable()">
+                      <label for="9">Freshman</label>
+                  <br>
+                      <input type="checkbox" id="10" onchange="searchTable()">
+                      <label for="10">Sophmore</label>
+                  <br>
+                      <input type="checkbox" id="11" onchange="searchTable()">
+                      <label for="11">Junior</label>
+                  <br>
+                      <input type="checkbox" id="12" onchange="searchTable()">
+                      <label for="12">Senior</label>
+              </div>
+              <div id="canTeach">
+                <br>
+                <h4>Classes</h4>
+                  <input type="checkbox" id="math" onchange="searchTable()">
+                  <label for="math">Math</label>
+                <br>
+                  <input type="checkbox" id="math" onchange="searchTable()">
+                  <label for="math">English</label>
+                <br>
+                  <input type="checkbox" id="math" onchange="searchTable()">
+                  <label for="math">Science</label>
+              </div>
+          </div>
+          <!-- Add more filter options as needed -->
+  </div>
+      <div class="main-content">
+          <!-- Product list goes here -->
+          <br>
+          <h1 class="heading">Find a Tutor</h1>
+          <input type="text" id="searchInput" class="shadow-lg" onkeyup="searchTable()" placeholder="Search for a tutor...">
+          <br><br>
+          <div class="table-container">
+              <table class="table table-bordered table-hover" id="tutors">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Email</th>
+                    <th>Subjects Taught</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for account in accounts %}
+                    {% if account['TutorValue'] == 1 %}
+                      <tr>
+                        <td><a href="{{ url_for('views.renderInfo', Info = account['Email']) }}">{{account['Name']}}</a></td>
+                        <td><a href="{{ url_for('views.renderInfo', Info = account['Email']) }}">{{account['Grade']}}</a></td>
+                        <td><a href="{{ url_for('views.renderInfo', Info = account['Email']) }}">{{account['Email']}}</a></td>
+                        <td><a href="{{ url_for('views.renderInfo', Info = account['Email']) }}">{{account['SubjectsTaught']}}</a></td>
+                      </tr>
+              
+                    {% endif %}
+                  {% endfor %}              
+              </table>
+          </div>
+      </div>
+  </div>
+</body>
+
+<script>
+  function searchTable() {
+    // Declare variables
+    var input, filter, table, tableBody, rows, cells, cellText, searchMatch, gradeMatch;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+    table = document.getElementById('tutors');
+    tableBody = table.getElementsByTagName('tbody')[0];
+    rows = tableBody.getElementsByTagName('tr');
+    for (i = 0; i < rows.length; i++) {
+      searchMatch = false;
+      gradeMatch = true;
+      cells = rows[i].getElementsByTagName('td');
+      for (j = 0; j < cells.length; j++) {
+        cellText = cells[j].innerText.toUpperCase();
+        if (cellText.indexOf(filter) > -1) {
+          searchMatch = true;
+        }
+        //only filter by this grade if its checkbox is checked
+        if (document.getElementById("9").checked) {
+          gradeMatch = gradeMatch && cells[1].innerText.toUpperCase().indexOf("FRESHMAN") > -1;
+        }
+        if (document.getElementById("10").checked) {
+          gradeMatch = gradeMatch && cells[1].innerText.toUpperCase().indexOf("SOPHOMORE") > -1;
+        }
+        if (document.getElementById("11").checked) {
+          gradeMatch = gradeMatch && cells[1].innerText.toUpperCase().indexOf("JUNIOR") > -1;
+        }
+        if (document.getElementById("12").checked) {
+          gradeMatch = gradeMatch && cells[1].innerText.toUpperCase().indexOf("SENIOR") > -1;
+        }
+      }
+      if (gradeMatch && searchMatch) {
+        rows[i].style.display = '';
+      } else {
+        rows[i].style.display = 'none';
+      }
+    }
+  }
+</script>
+
+{% endblock %}

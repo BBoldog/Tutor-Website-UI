@@ -1,0 +1,23 @@
+.favorited {
+    color: gold;
+}
+
+/* CSS style for the table */
+#favoritesTable {
+    background-color: #f2f2f2; /* light gray background */
+    border-collapse: collapse; /* remove spacing between cells */
+    width: 100%; /* full width of the container */
+}
+  
+/* CSS style for table cells */
+#favoritesTable td, #favoritesTable th {
+    border: 1px solid #ddd; /* gray border between cells */
+    padding: 8px; /* padding inside cells */
+    text-align: left; /* left-align cell contents */
+}
+  
+/* CSS style for table header cells */
+#favoritesTable th {
+    background-color: #4CAF50; /* green background */
+    color: white; /* white text */
+}

@@ -1,0 +1,357 @@
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);
+    background-color:rgb(129, 128, 128)
+}
+
+body::-webkit-scrollbar{
+    display:none;
+}
+    
+#next-month {
+    z-index: 9999;
+    background-color: #791010;
+    border: none;
+    color: white;
+    position: relative;
+    padding: 10px 20px;
+    text-align: center;
+    transform: translate(1200%, 730%);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    border-collapse: collapse;
+}
+   
+h1{
+    font-family: 'Montserrat', sans-serif;
+    color: #ece2e2;
+    font-size: 18;
+    position: relative;
+    transform: translate(0%, -15%);
+}
+
+h2{
+    font-family: 'Golos Text';
+    position: relative;
+    color: #ece2e2;
+}
+    
+p{
+    position: relative;
+    font-size: 16;
+}
+    
+div.box1 {
+    background-color: #ac2828;
+    border: 1px solid #ac2828;
+    border-radius: 16px;
+    border-collapse: collapse;
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    width: 1200px;
+    color: #ece2e2;
+}
+    
+div.box2 {
+    background-color: #ece2e2;
+    border: 1px solid #ece2e2;
+    border-radius: 16px;
+    border-collapse: collapse;
+    padding: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-150%, 0%);
+    width: 350px;
+    font-family: 'Montserrat', sans-serif;
+    color:#e63b3b;
+    height: 300px;
+}
+    
+div.box3 {
+    background-color: #ecebeb;
+    border: 1px solid #ecebeb;
+    border-radius: 16px;
+    border-collapse: collapse;
+    padding: 20px;
+    position: absolute;
+    top: 170%;
+    left: 50%;
+    transform: translate(30%, 0%);
+    width: 400px;
+    font-family: 'Montserrat', sans-serif;
+    color: #e63b3b;
+}
+    
+div.box4 {
+    background-color: #ac2828;
+    border: 1px solid #ac2828;
+    border-radius: 16px;
+    border-collapse: collapse;
+    padding: 20px;
+    position: absolute;
+    top: 140%;
+    left: 50%;
+    transform: translate(30%, 0%);
+    width: 400px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ecebeb;
+}
+    
+div.box5{
+      background-color: #ac2828;
+      border: 1px solid #ac2828;
+      border-radius: 16px;
+      border-collapse: collapse;
+      padding: 20px;
+      position: absolute;
+      top: 60%;
+      left: 25%;
+      transform: translate(30%, 0%);
+      width: 650px;
+      height: 300px;
+      font-family: 'Montserrat', sans-serif;
+      color: #ecebeb;
+}
+   
+img {
+    width: 700px;
+    height: 500px;
+    border-radius: 16px;
+    border-collapse: collapse;
+}
+    
+.swiffy-slider {
+    width:700px;
+    transform: translate(5%, 195%);
+    position: absolute;
+    top: 25%;
+}
+    
+#back-btn {
+    background-color: #ac2828;
+    border: none;
+    color: white;
+    position: relative;
+    padding: 10px 20px;
+    text-align: center;
+    transform: translate(10%, 10%);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    border-collapse: collapse;
+}
+    
+#jan{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#feb{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#mar{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#apr{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#may{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#jun{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#jul{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#aug{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#sep{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#oct{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#nov{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+#dec{
+      border-collapse: collapse; /* Collapse borders */
+      border-radius: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      left: 45%; 
+      width: 45%; /* width */
+      position: absolute;
+      top: 75%;
+      border: 6px solid #791010; /* Add a grey border */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color:white;
+      display: none;
+}
+    
+h6{
+    font-family: 'Golos Text';
+    position: relative;
+    font-size:x-large;
+    color: #ece2e2;
+}

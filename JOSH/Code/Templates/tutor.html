@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block title %}Tutor{% endblock %}
+
+
+
+{% block content %} 
+    <link rel="stylesheet" href="../static/styles/tutor.css">
+
+    
+
+    {% for account in accounts %}
+    
+    
+        {% if account['Email'] == email %}
+
+            <div class="tutorPage">
+                <div class="tutorPageLeft">
+                    <img class="profilePicture" src="{{ url_for('static', filename=tutorProfilePicture)}}" alt="">
+                    <h4 class="tutorName" align='center'>{{ account['Name'] }}</h4>
+                    
+                </div>
+
+                <div class="tutorPageRight">
+                    <div class="tutorInfo">
+                        
+                        <div class="tutor-data">
+                            <div class="data">
+                                <h4 style="font-weight: bold;">Bio:</h4>
+                                <p>{{ account['Bio'] }}</p>
+                            </div>
+                            <div class="data">
+                                <h4 style="font-weight: bold;">Grade</h4>
+                                <p>{{ account['Grade'] }}</p>
+                            </div>
+
+                            <div class="data">
+                                <h4 style="font-weight: bold;">Subjects Taught</h4>
+                                <p>{{ account['SubjectsTaught'] }}</p>
+                            </div>
+                            <div class="data">
+                                <h4 style="font-weight: bold;">Email</h4>
+                                <p>{{ account['Email'] }}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+            
+            <h5></h5>
+            <h5></h5>
+            
+
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}

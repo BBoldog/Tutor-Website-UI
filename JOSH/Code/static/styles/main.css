@@ -1,0 +1,45 @@
+nav {
+    border-bottom: 3px solid black;
+}
+
+.navbar-brand {
+    font-weight: bolder;
+    color: white !important;
+}
+
+.nav-link {
+    margin: 0px 10px;
+    color: white !important;
+}
+
+.nav-link:hover {
+    background-color: #85404c;
+}
+
+    /*
+    .nav-link:hover {
+        text-decoration: none;
+        background-color: black;
+        color: white !important;
+        border: solid 1px;
+        border-color: white;
+        font-weight: 1000;
+    }*/
+
+.navStyle {
+    background-color: #9d152d !important;
+    /*background-image: linear-gradient(rgb(200, 150, 150), #9d152d) !important;*/
+}
+
+.nav-profile {
+    color: rgb(120, 190, 255);
+}
+
+body::-webkit-scrollbar{
+    display: none !important;
+}
+
+.table-wrapper {
+    height: 99vh; /* set the desired height for the table */
+    overflow-y: scroll; /* enable vertical scrolling */
+}

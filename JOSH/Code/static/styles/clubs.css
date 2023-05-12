@@ -1,0 +1,248 @@
+html {
+  scroll-behavior: smooth;
+}
+#myInput {
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 31%; /* Quarter-width */
+  position: absolute;
+  top: 28%;
+  left: 1%; /*position on screen*/
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px; /* Increase font-size */
+  padding: 16px 20px 16px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+#myTable {
+  /*
+  border-collapse: collapse; /* Collapse borders
+  overflow: hidden;
+  left: 1%; 
+  position: absolute;
+  top: 40%;
+  */
+  border: 6px solid #696969; /* Add a grey border */
+  border-top: sticky;
+  border-top: 0;
+  font-size: 20px; /* Increase font-size */
+  width: 99%; /* Set table width to 100% by default */
+  margin-left: 1%;
+  table-layout: fixed; /* Fix the table layout to prevent cell width from expanding */
+}
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 10px; /* Add padding */
+}
+
+#myTable tr {
+  border-bottom: 7px solid #696969;
+  background-color: rgb(160, 160, 160);
+}
+
+#myTable th {
+  background-color: #696969;
+  position: sticky;
+  top: 0;
+}
+
+#myTable tr:hover {
+  background-color: #7d7d7d;
+}
+
+/* Select container element by tag name */
+body {
+  width: 100%;
+  /*background-color: white !important;*/
+}
+
+/* Select container element by class name */
+.container {
+  width: 100%;
+}
+
+.heading {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bolder;
+  font-size: 50px;
+  text-align: right;
+  color: black;
+  padding-right: 25px;
+}
+p {
+  font-family: 'Open sans';
+  font-weight: bold;
+  font-size: 26px;
+  color: #000000;
+  position: absolute;
+  top: 9%;
+  left: 2%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+div.box1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: #9b3535;
+  border: 1px solid #000000;
+  color: #faf9f9;
+  padding: 35px;
+  width: 390px;
+  border-radius: 16px;
+  border-collapse: collapse;
+}
+div.box2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: #363131;
+  border: 1px solid #000000;
+  color: #faf9f9;
+  padding: 35px;
+  width: 390px;
+  border-radius: 16px;
+  border-collapse: collapse;
+}
+div.box3{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: #000000;
+  border: 1px solid #000000;
+  color: #faf9f9;
+  padding: 35px;
+  width: 390px;
+  border-radius: 16px;
+  border-collapse: collapse;
+}
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+input[type="checkbox"] {
+  transform: scale(1.5);
+  /* Adjust the number as needed to change the size */
+}
+
+/* Elements of the table */
+#Mon {
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 5%; 
+  top: 15%; 
+}
+#Tue {
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 5%; 
+  top: 21%; 
+}
+#Wed {
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 15%; 
+  top: 15%;
+}
+#Thu {
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 15%; 
+  top: 21%;
+}
+#Fri {
+  position: absolute; 
+  font-family: 'Open sans';
+  font-size: 20px;
+  left: 27%; 
+  top: 15%;
+}
+#Sat {
+  display:none
+}
+#Sun {
+  display:none
+}
+#Monday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: absolute;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 2%; 
+  top: 16%;  
+}
+#Tuesday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: absolute;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 2%; 
+  top: 22%; 
+}
+#Wednesday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: absolute;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 12%; 
+  top: 16%; 
+}
+#Thursday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: absolute;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 12%; 
+  top: 22%; 
+}
+#Friday{
+  float: left;
+  display: flex;
+  color: #000000;
+  font-family: sans-serif;
+  position: absolute;
+  padding: 2px;
+  margin: 1px 5;
+  width: 30px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  left: 24%; 
+  top: 16%;  
+}
+#Saturday{
+  display:none
+}
+#Sunday{
+  display:none 
+}

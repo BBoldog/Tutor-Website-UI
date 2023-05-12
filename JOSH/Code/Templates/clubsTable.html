@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{%block title%} Clubs Table {% endblock %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="../static/styles/clubs.css">
+
+<head>
+  <h1 class="heading">Huntley High School Clubs </h1>
+  <title>Home</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<p>Filters:</p>
+
+<input type="text" id="myInput" class="shadow-lg mb-5 bg-white rounded" onkeyup="myFunction()" placeholder="Search...">
+<div id="checks">
+
+<input type="checkbox" id="Monday" onchange="myFunction()">
+<label for="Monday" id="Mon">Monday</label>
+<br>
+<input type="checkbox" id="Tuesday" onchange="myFunction()">
+<label for="Tuesday" id="Tue">Tuesday</label>
+<br>
+<input type="checkbox" id="Wednesday" onchange="myFunction()">
+<label for="Wednesday" id="Wed">Wednesday</label>
+<br>
+<input type="checkbox" id="Thursday" onchange="myFunction()">
+<label for="Thursday" id="Thu">Thursday</label>
+<br>
+<input type="checkbox" id="Friday" onchange="myFunction()">
+<label for="Friday" id="Fri">Friday</label>
+<br>
+<input type="checkbox" id="Saturday" onchange="myFunction()">
+<label for="Saturday" id="Sat">Saturday</label>
+<br>
+<input type="checkbox" id="Sunday" onchange="myFunction()">
+<label for="Sunday" id="Sun">Sunday</label>
+<br>
+</div>
+
+<div class="table-wrapper">
+  <table id="myTable">
+    <tr class="header">
+      <th>Name</th>
+      <th>Times</th>
+      <th>Dates</th>
+      {% for clubs in clubs %}
+        <tr>
+        <td class="clubContainer" data-Monday = "{{clubs['Monday']}}" data-Tuesday = "{{clubs['Tuesday']}}" 
+        data-Wednesday = "{{clubs['Wednesday']}}" data-Thursday = "{{clubs['Thursday']}}" 
+        data-Friday = "{{clubs['Friday']}}" data-Saturday = "{{clubs['Saturday']}}" data-Sunday = "{{clubs['Sunday']}}">
+            <a href="{{ url_for('views.renderInfo', Info = clubs['Name']) }}" style="text-decoration: none; color: #faf9f9;">
+              <div class="box1"> 
+                {% if clubs['Name'].endswith('--') %}
+                  {{ clubs['Name'][:-2] }}
+                {% else %}
+                  {{ clubs['Name'] }}
+                {% endif %}
+        
+              </div>
+            </a>
+        </td>
+        <td>
+          <a href="{{url_for('views.renderInfo', Info = clubs['Name'])}}" style="text-decoration: none; color: #faf9f9;">
+          <div class="box2">
+        {{clubs['Times']}}
+          </div>
+          </a>
+        </td>
+        <td>
+          <a href="{{url_for('views.renderInfo', Info = clubs['Name'])}}" style="text-decoration: none; color: #faf9f9;">
+          <div class="box3">
+        {{clubs['Dates']}}
+          </div>
+          </a>
+        </td>
+        </tr>
+      {% endfor %}
+    </tr>
+  </table>
+</div>
+
+
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue, daysMatch, searchMatch;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < 3; i++) {
+        daysMatch = true;
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          searchMatch = txtValue.toUpperCase().indexOf(filter) > -1
+          if (document.getElementById("Monday").checked) {
+            daysMatch = daysMatch && td.dataset.monday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Tuesday").checked) {
+            daysMatch = daysMatch && td.dataset.tuesday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Wednesday").checked) {
+            daysMatch = daysMatch && td.dataset.wednesday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Thursday").checked) {
+            daysMatch = daysMatch && td.dataset.thursday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Friday").checked) {
+            daysMatch = daysMatch && td.dataset.friday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Saturday").checked) {
+            daysMatch = daysMatch && td.dataset.saturday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if (document.getElementById("Sunday").checked) {
+            daysMatch = daysMatch && td.dataset.sunday == '1'; //only filter by this day if its checkbox is checked
+          }
+          if(daysMatch && searchMatch){
+            tr[i].style.display = "";
+            //console.log(txtValue)
+          }else{
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+</body>
+{%endblock%}
